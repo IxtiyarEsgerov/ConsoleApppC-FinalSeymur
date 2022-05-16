@@ -6,12 +6,9 @@ namespace ConsoleApppSeymur.Models
 {
     class Student
     {
-        public  int Id=0;
+        public  int Id=0,EntryPoint;
         public static int Count;
-        public string FullName;
-        public string GroupNo;
-        public string Type;
-        public int EntryPoint;
+        public string FullName,GroupNo,Type;
        
         public Student(string fullname,string groupno, int entrypoint)
         {
@@ -19,14 +16,8 @@ namespace ConsoleApppSeymur.Models
             FullName = fullname;
             GroupNo = groupno;
             EntryPoint = entrypoint;
-            if (EntryPoint>=90)
-            {
-                Type = "Guaranteed";
-            }
-            else
-            {
-                Type = "Not guaranteed";
-            }
+            Type = EntryPoint>=90 ? "Guaranteed": "Not guaranteed";
+           
         }
         public override string ToString()
         {
