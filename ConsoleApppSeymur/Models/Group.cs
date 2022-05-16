@@ -21,15 +21,8 @@ namespace ConsoleApppSeymur.Models
             get { return _Isonline; }
             set {
                 _Isonline = value;
-                if (value == true)
-                {
-                    _limit = 15;
-
-                }
-                else
-                {
-                    _limit = 10;
-                }
+                
+                _limit = value ? 15 : 10;
             }
         }
         static Group() {
@@ -39,15 +32,9 @@ namespace ConsoleApppSeymur.Models
         {
             
             Isonline = online;
+            
+            _generalyStudent = Isonline ?  new List<Student>(15) :  new List<Student>(10);
 
-            if (Isonline==true)
-            {
-                _generalyStudent = new List<Student>(15);
-            }
-            else
-            {
-                _generalyStudent = new List<Student>(10);
-            }
             switch (category)
             {
                  case Categories.Programming:
